@@ -101,6 +101,59 @@ void hapusBelakang(){
 			cout<<"terhapus\n";
 		} else cout<<"Masih kosong\n";
 	}
+void masuktengah()
+{
+  Node *baru, *bantu;
+  int posisi_sisip, data;
+  if(!isEmpty())
+  {
+    cout<<"Masuk di data ke : ";
+    cin>>posisi_sisip;
+    bantu=head;
+    baru =new Node;
+    for(int i=1;i<posisi_sisip-1;i++) {
+      if(bantu->next != NULL)
+        bantu=bantu->next;
+      else
+        break; 
+    }
+  cout << "Masukkan Data     : ";
+  cin >> baru->data;
+  baru->next=bantu->next;
+  bantu->next=baru;
+  }
+  else
+  {
+    cout<<"Belum ada data !!";
+  } 
+}
+
+void Hapusbasing()
+{
+  Node *baru, *bantu, *hapus;
+  int posisi_hapus, data, d;
+  if(!isEmpty())
+  {
+    cout<<"Masuk di data ke : ";
+    cin>>posisi_hapus;
+    bantu=head;
+    baru =new Node;
+    for(int i=1;i<posisi_hapus-1;i++) {
+      if(bantu->next != NULL)
+        bantu=bantu->next;
+      else
+        break; 
+    }
+    hapus = bantu->next;
+	d = bantu->data;
+	bantu->next = head;
+	delete hapus;
+  }
+  else
+  {
+  	cout<<"Belum ada data gan!!";
+  }
+}
 
 void cetak(){
     if (!isEmpty()){
@@ -175,8 +228,10 @@ void pilih()
     }
 }
 
+
 int main()
 {
     pilih();
     return 0;
 }
+
