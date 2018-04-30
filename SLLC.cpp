@@ -41,6 +41,31 @@ void barudepan(int databaru){
 	}
 	cout<<"Data masuk\n";
 }
+void tambahBelakang(int databaru)
+{
+    Node *baru;
+    baru = new Node();
+    baru->data = databaru;
+    baru->next = baru;
+
+    if (isEmpty())
+    {
+        head = baru;
+        head->next = head;
+    }
+    else
+    {
+        Node *bantu;
+        bantu = head;
+        while (bantu->next != head)
+        {
+            bantu = bantu->next;
+        }
+        bantu->next = baru;
+        baru->next = head;
+    }
+    cout<<"Data masuk\n";
+}
 
 void hapuspalak(){
 	int bantu;
@@ -56,47 +81,68 @@ void hapuspalak(){
 	}
 }
 
-void menu(){
-	int pilih, data;
-	char ulang;
-	do{
-		system("cls");
-      cout<<"Tugas SLLC MANTAP"<<endl;
-      cout<<"================="<<endl;
-      cout<<"Menu : "<<endl;
-      cout<<"1. Input data"<<endl;
-      cout<<"2. Hapus data"<<endl;
-      cout<<"3. Exit"<<endl;
-      cout<<"Your Choice : ";
-      cin>>pilih;
+void cetak(){
+    if (!isEmpty()){
+        Node *bantu;
+        bantu = head;
+        do{
+            cout<<bantu->data<<" ";
+            bantu=bantu->next;
+        }while (bantu!=head);
+    } else {
+        cout<<"List Kosong";
+    }
+}
 
-      switch(pilih)
-      {
-      case 1 :
-            cout<<"\nInput Data : ";
-            cin>>data;
+void pilih()
+{
+    int a, n, data;
+    cout<<"1. Tambah Depan\n2. Tambah Belakang\n3. Hapus Palak\n";
+    cout<<"Masukkan Pilihan : "; cin>>a;
+    cout<<endl;
+    switch(a)
+    {
+        case 1 : 
+        init();
+        cout<<"Masukkan Banyak data : "; cin>>n;
+        for (int i=0;i<n;i++)
+        {
+            cout<<"Masukkan Data "<<i+1<<" : ";cin>>data;
             barudepan(data);
-            break;
-      case 2 :
-            hapuspalak();
-            break;
-      case 3 :
-            exit(0);
-            break;
-      default :
-            cout<<"\nPilih ulang"<<endl;
-      }
-      cout<<"\nBack to Menu?(y/n)";
-      cin>>ulang;
-      }while(ulang=='y' || ulang=='Y');
-		
-	}
+        }
+        cetak();
+        cout<<endl;
+        break;
 
+        case 2 : 
+        init();
+        cout<<"Masukkan Banyak data : "; cin>>n;
+        for (int i=0;i<n;i++)
+        {
+            cout<<"Masukkan Data "<<i+1<<" : ";cin>>data;
+            tambahBelakang(data);
+        }
+        cetak();
+        cout<<endl;
+        break;
+		    
+	case 3 : 
+        init();
+        cout<<"Masukkan Banyak data : "; cin>>n;
+        for (int i=0;i<n;i++)
+        {
+            cout<<"Masukkan Data "<<i+1<<" : ";cin>>data;
+            barudepan(data);
+        }
+        hapuspalak();
+        cetak();
+        cout<<endl;
+        break;
+    }
+}
 
 int main()
 {
-    init();
-    menu();
-    
+    pilih();
     return 0;
 }
