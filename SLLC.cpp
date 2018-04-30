@@ -81,6 +81,27 @@ void hapuspalak(){
 	}
 }
 
+void hapusBelakang(){
+		Node *hapus,*bantu;
+		if (isEmpty()==0){
+			int d;
+			hapus = head;
+			if(head->next == head){
+				head = NULL;
+			}else{
+				bantu = head;
+				while(bantu->next->next != head){
+					bantu = bantu->next;
+				}
+				hapus = bantu->next;
+	         		d = bantu->data;
+				bantu->next = head;
+				delete hapus;
+			}
+			cout<<"terhapus\n";
+		} else cout<<"Masih kosong\n";
+	}
+
 void cetak(){
     if (!isEmpty()){
         Node *bantu;
@@ -97,7 +118,7 @@ void cetak(){
 void pilih()
 {
     int a, n, data;
-    cout<<"1. Tambah Depan\n2. Tambah Belakang\n3. Hapus Palak\n";
+    cout<<"1. Tambah Depan\n2. Tambah Belakang\n3. Hapus Palak\n4. Hapus Belakang\n";
     cout<<"Masukkan Pilihan : "; cin>>a;
     cout<<endl;
     switch(a)
@@ -138,6 +159,19 @@ void pilih()
         cetak();
         cout<<endl;
         break;
+
+	case 4 : 
+        init();
+        cout<<"Masukkan Banyak data : "; cin>>n;
+        for (int i=0;i<n;i++)
+        {
+            cout<<"Masukkan Data "<<i+1<<" : ";cin>>data;
+            barudepan(data);
+        }
+        hapusbelakang();
+        cetak();
+        cout<<endl;
+        break;	    
     }
 }
 
