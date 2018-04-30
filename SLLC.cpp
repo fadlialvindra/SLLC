@@ -153,7 +153,7 @@ void pilih()
         for (int i=0;i<n;i++)
         {
             cout<<"Masukkan Data "<<i+1<<" : ";cin>>data;
-            barudepan(data);
+            tambahBelakang(data);
         }
         hapuspalak();
         cetak();
@@ -166,9 +166,9 @@ void pilih()
         for (int i=0;i<n;i++)
         {
             cout<<"Masukkan Data "<<i+1<<" : ";cin>>data;
-            barudepan(data);
+            tambahBelakang(data);
         }
-        hapusbelakang();
+        hapusBelakang();
         cetak();
         cout<<endl;
         break;	    
