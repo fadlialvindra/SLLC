@@ -101,6 +101,7 @@ void hapusBelakang(){
 			cout<<"terhapus\n";
 		} else cout<<"Masih kosong\n";
 	}
+
 void masuktengah()
 {
   Node *baru, *bantu;
@@ -171,7 +172,7 @@ void cetak(){
 void pilih()
 {
     int a, n, data;
-    cout<<"1. Tambah Depan\n2. Tambah Belakang\n3. Hapus Palak\n4. Hapus Belakang\n5. menambahkan node posisi tertentu\n6. menghapus node tertentu\n";
+    cout<<"1. Tambah Depan\n2. Tambah Belakang\n3. Hapus Depan\n4. Hapus Belakang\n5. Tambah Tertentu\n6. Hapus Tertentu\n";
     cout<<"Masukkan Pilihan : "; cin>>a;
     cout<<endl;
     switch(a)
@@ -225,8 +226,8 @@ void pilih()
         cetak();
         cout<<endl;
         break;	    
-	
-	case 5 : 
+    
+    case 5 : 
         init();
         cout<<"Masukkan Banyak data : "; cin>>n;
         for (int i=0;i<n;i++)
@@ -237,9 +238,9 @@ void pilih()
         masuktengah();
         cetak();
         cout<<endl;
-        break;	   
-		    
-	case 6 : 
+        break;	    
+    
+    case 6 : 
         init();
         cout<<"Masukkan Banyak data : "; cin>>n;
         for (int i=0;i<n;i++)
@@ -250,14 +251,22 @@ void pilih()
         Hapusbasing();
         cetak();
         cout<<endl;
-        break;	    
+        break;
+    
+    default : cout<<"Kode Kamu salah gan, baca lagi coba code nya\n";
     }
 }
 
-
 int main()
 {
+	sini:
+	int ulang;
     pilih();
+    cout<<"\nmau lagi gan?? (1/0) "; cin>>ulang;
+    if(ulang==1) {
+    	goto sini;
+    } else {
+    	cout<<"Makasih udh mampir gan\n";
+    }
     return 0;
 }
-
