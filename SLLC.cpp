@@ -171,7 +171,7 @@ void cetak(){
 void pilih()
 {
     int a, n, data;
-    cout<<"1. Tambah Depan\n2. Tambah Belakang\n3. Hapus Palak\n4. Hapus Belakang\n";
+    cout<<"1. Tambah Depan\n2. Tambah Belakang\n3. Hapus Palak\n4. Hapus Belakang\n5. menambahkan node posisi tertentu\n6. menghapus node tertentu\n";
     cout<<"Masukkan Pilihan : "; cin>>a;
     cout<<endl;
     switch(a)
@@ -222,6 +222,32 @@ void pilih()
             tambahBelakang(data);
         }
         hapusBelakang();
+        cetak();
+        cout<<endl;
+        break;	    
+	
+	case 5 : 
+        init();
+        cout<<"Masukkan Banyak data : "; cin>>n;
+        for (int i=0;i<n;i++)
+        {
+            cout<<"Masukkan Data "<<i+1<<" : ";cin>>data;
+            tambahBelakang(data);
+        }
+        masuktengah();
+        cetak();
+        cout<<endl;
+        break;	   
+		    
+	case 6 : 
+        init();
+        cout<<"Masukkan Banyak data : "; cin>>n;
+        for (int i=0;i<n;i++)
+        {
+            cout<<"Masukkan Data "<<i+1<<" : ";cin>>data;
+            tambahBelakang(data);
+        }
+        Hapusbasing();
         cetak();
         cout<<endl;
         break;	    
